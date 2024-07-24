@@ -1,13 +1,13 @@
 [
     {
-        "id": 109,
-        "url": "https://demo.netbox.dev/api/dcim/devices/109/",
-        "display": "FW-OUTDOOR",
-        "name": "FW-OUTDOOR",
+        "id": 114,
+        "url": "https://demo.netbox.dev/api/dcim/devices/114/",
+        "display": "Access Switch",
+        "name": "Access Switch",
         "device_type": {
-            "id": 4,
-            "url": "https://demo.netbox.dev/api/dcim/device-types/4/",
-            "display": "EX4200-48T",
+            "id": 16,
+            "url": "https://demo.netbox.dev/api/dcim/device-types/16/",
+            "display": "EX3400-48P",
             "manufacturer": {
                 "id": 7,
                 "url": "https://demo.netbox.dev/api/dcim/manufacturers/7/",
@@ -16,16 +16,16 @@
                 "slug": "juniper",
                 "description": ""
             },
-            "model": "EX4200-48T",
-            "slug": "ex4200-48t",
+            "model": "EX3400-48P",
+            "slug": "juniper-ex3400-48p",
             "description": ""
         },
         "role": {
-            "id": 11,
-            "url": "https://demo.netbox.dev/api/dcim/device-roles/11/",
-            "display": "Firewall",
-            "name": "Firewall",
-            "slug": "firewall",
+            "id": 4,
+            "url": "https://demo.netbox.dev/api/dcim/device-roles/4/",
+            "display": "Access Switch",
+            "name": "Access Switch",
+            "slug": "access-switch",
             "description": ""
         },
         "tenant": null,
@@ -33,25 +33,37 @@
         "serial": "",
         "asset_tag": null,
         "site": {
-            "id": 24,
-            "url": "https://demo.netbox.dev/api/dcim/sites/24/",
-            "display": "Butler Communications",
-            "name": "Butler Communications",
-            "slug": "ncsu-128",
+            "id": 25,
+            "url": "https://demo.netbox.dev/api/dcim/sites/25/",
+            "display": "Test01",
+            "name": "Test01",
+            "slug": "test01",
             "description": ""
         },
         "location": null,
-        "rack": null,
-        "position": null,
-        "face": null,
+        "rack": {
+            "id": 43,
+            "url": "https://demo.netbox.dev/api/dcim/racks/43/",
+            "display": "Racks",
+            "name": "Racks",
+            "description": ""
+        },
+        "position": 42.0,
+        "face": {
+            "value": "front",
+            "label": "Front"
+        },
         "latitude": null,
         "longitude": null,
         "parent_device": null,
         "status": {
-            "value": "active",
-            "label": "Active"
+            "value": "planned",
+            "label": "Planned"
         },
-        "airflow": null,
+        "airflow": {
+            "value": "front-to-rear",
+            "label": "Front to rear"
+        },
         "primary_ip": null,
         "primary_ip4": null,
         "primary_ip6": null,
@@ -76,137 +88,17 @@
             "date_of_purchase": null,
             "maintenance_end": null
         },
-        "created": "2024-07-23T07:42:22.394382Z",
-        "last_updated": "2024-07-23T11:31:50.358035Z",
-        "console_port_count": 1,
-        "console_server_port_count": 1,
-        "power_port_count": 2,
-        "power_outlet_count": 0,
-        "interface_count": 53,
-        "front_port_count": 0,
-        "rear_port_count": 0,
-        "device_bay_count": 0,
-        "module_bay_count": 0,
-        "inventory_item_count": 0
-    },
-    {
-        "id": 111,
-        "url": "https://demo.netbox.dev/api/dcim/devices/111/",
-        "display": "FWTEST (98723749234)",
-        "name": "FWTEST",
-        "device_type": {
-            "id": 16,
-            "url": "https://demo.netbox.dev/api/dcim/device-types/16/",
-            "display": "SRX300",
-            "manufacturer": {
-                "id": 7,
-                "url": "https://demo.netbox.dev/api/dcim/manufacturers/7/",
-                "display": "Juniper",
-                "name": "Juniper",
-                "slug": "juniper",
-                "description": ""
-            },
-            "model": "SRX300",
-            "slug": "srx300",
-            "description": ""
-        },
-        "role": {
-            "id": 11,
-            "url": "https://demo.netbox.dev/api/dcim/device-roles/11/",
-            "display": "Firewall",
-            "name": "Firewall",
-            "slug": "firewall",
-            "description": ""
-        },
-        "tenant": null,
-        "platform": null,
-        "serial": "FSJG239j0r2",
-        "asset_tag": "98723749234",
-        "site": {
-            "id": 21,
-            "url": "https://demo.netbox.dev/api/dcim/sites/21/",
-            "display": "MDF",
-            "name": "MDF",
-            "slug": "ncsu-065",
-            "description": "Main Distribution Frame"
-        },
-        "location": {
-            "id": 2,
-            "url": "https://demo.netbox.dev/api/dcim/locations/2/",
-            "display": "Row 2",
-            "name": "Row 2",
-            "slug": "row-2",
-            "description": "",
-            "rack_count": 0,
-            "_depth": 0
-        },
-        "rack": {
-            "id": 23,
-            "url": "https://demo.netbox.dev/api/dcim/racks/23/",
-            "display": "R202",
-            "name": "R202",
-            "description": ""
-        },
-        "position": 47.0,
-        "face": {
-            "value": "front",
-            "label": "Front"
-        },
-        "latitude": null,
-        "longitude": null,
-        "parent_device": null,
-        "status": {
-            "value": "active",
-            "label": "Active"
-        },
-        "airflow": {
-            "value": "front-to-rear",
-            "label": "Front to rear"
-        },
-        "primary_ip": null,
-        "primary_ip4": null,
-        "primary_ip6": null,
-        "oob_ip": null,
-        "cluster": null,
-        "virtual_chassis": null,
-        "vc_position": null,
-        "vc_priority": null,
-        "description": "Firewall Test",
-        "comments": "",
-        "config_template": null,
-        "config_context": {},
-        "local_context_data": null,
-        "tags": [
-            {
-                "id": 2,
-                "url": "https://demo.netbox.dev/api/extras/tags/2/",
-                "display": "Bravo",
-                "name": "Bravo",
-                "slug": "bravo",
-                "color": "f44336"
-            }
-        ],
-        "custom_fields": {
-            "core": null,
-            "hard_disk": null,
-            "nb_processor": null,
-            "os": null,
-            "processor_and_speed": null,
-            "ram": null,
-            "date_of_purchase": null,
-            "maintenance_end": null
-        },
-        "created": "2024-07-23T09:43:35.829425Z",
-        "last_updated": "2024-07-23T09:43:35.829487Z",
-        "console_port_count": 0,
+        "created": "2024-07-24T07:33:57.613240Z",
+        "last_updated": "2024-07-24T07:33:57.613288Z",
+        "console_port_count": 2,
         "console_server_port_count": 0,
         "power_port_count": 0,
         "power_outlet_count": 0,
-        "interface_count": 0,
+        "interface_count": 59,
         "front_port_count": 0,
         "rear_port_count": 0,
         "device_bay_count": 0,
-        "module_bay_count": 0,
+        "module_bay_count": 2,
         "inventory_item_count": 0
     },
     {
@@ -512,7 +404,13 @@
         "primary_ip4": null,
         "primary_ip6": null,
         "oob_ip": null,
-        "cluster": null,
+        "cluster": {
+            "id": 9,
+            "url": "https://demo.netbox.dev/api/virtualization/clusters/9/",
+            "display": "DO-AMS3",
+            "name": "DO-AMS3",
+            "description": ""
+        },
         "virtual_chassis": null,
         "vc_position": null,
         "vc_priority": null,
@@ -533,7 +431,7 @@
             "maintenance_end": null
         },
         "created": "2021-04-02T00:00:00Z",
-        "last_updated": "2021-04-02T17:29:22.719000Z",
+        "last_updated": "2024-07-24T07:04:19.415566Z",
         "console_port_count": 1,
         "console_server_port_count": 0,
         "power_port_count": 2,
@@ -852,7 +750,7 @@
                 "name": null
             },
             "description": "",
-            "member_count": 2
+            "member_count": 3
         },
         "vc_position": 1,
         "vc_priority": null,
@@ -980,7 +878,7 @@
                 "name": null
             },
             "description": "",
-            "member_count": 2
+            "member_count": 3
         },
         "vc_position": 2,
         "vc_priority": null,
@@ -1770,6 +1668,125 @@
         },
         "created": "2021-12-30T00:00:00Z",
         "last_updated": "2021-12-30T16:18:24.555000Z",
+        "console_port_count": 1,
+        "console_server_port_count": 0,
+        "power_port_count": 2,
+        "power_outlet_count": 0,
+        "interface_count": 55,
+        "front_port_count": 0,
+        "rear_port_count": 0,
+        "device_bay_count": 0,
+        "module_bay_count": 0,
+        "inventory_item_count": 0
+    },
+    {
+        "id": 111,
+        "url": "https://demo.netbox.dev/api/dcim/devices/111/",
+        "display": "Juniper QFX5100-48T-6Q (111)",
+        "name": null,
+        "device_type": {
+            "id": 5,
+            "url": "https://demo.netbox.dev/api/dcim/device-types/5/",
+            "display": "QFX5100-48T-6Q",
+            "manufacturer": {
+                "id": 7,
+                "url": "https://demo.netbox.dev/api/dcim/manufacturers/7/",
+                "display": "Juniper",
+                "name": "Juniper",
+                "slug": "juniper",
+                "description": ""
+            },
+            "model": "QFX5100-48T-6Q",
+            "slug": "qfx5100-48t-6q",
+            "description": ""
+        },
+        "role": {
+            "id": 7,
+            "url": "https://demo.netbox.dev/api/dcim/device-roles/7/",
+            "display": "Application Server",
+            "name": "Application Server",
+            "slug": "application-server",
+            "description": ""
+        },
+        "tenant": null,
+        "platform": null,
+        "serial": "",
+        "asset_tag": null,
+        "site": {
+            "id": 21,
+            "url": "https://demo.netbox.dev/api/dcim/sites/21/",
+            "display": "MDF",
+            "name": "MDF",
+            "slug": "ncsu-065",
+            "description": "Main Distribution Frame"
+        },
+        "location": {
+            "id": 2,
+            "url": "https://demo.netbox.dev/api/dcim/locations/2/",
+            "display": "Row 2",
+            "name": "Row 2",
+            "slug": "row-2",
+            "description": "",
+            "rack_count": 0,
+            "_depth": 0
+        },
+        "rack": {
+            "id": 22,
+            "url": "https://demo.netbox.dev/api/dcim/racks/22/",
+            "display": "R201",
+            "name": "R201",
+            "description": ""
+        },
+        "position": null,
+        "face": {
+            "value": "front",
+            "label": "Front"
+        },
+        "latitude": null,
+        "longitude": null,
+        "parent_device": null,
+        "status": {
+            "value": "active",
+            "label": "Active"
+        },
+        "airflow": null,
+        "primary_ip": null,
+        "primary_ip4": null,
+        "primary_ip6": null,
+        "oob_ip": null,
+        "cluster": null,
+        "virtual_chassis": null,
+        "vc_position": null,
+        "vc_priority": null,
+        "description": "",
+        "comments": "",
+        "config_template": null,
+        "config_context": {},
+        "local_context_data": null,
+        "tags": [],
+        "custom_fields": {
+            "core": null,
+            "hard_disk": [
+                "7TB",
+                "6.9TB",
+                "5.7TB",
+                "146Gx2"
+            ],
+            "nb_processor": 32,
+            "os": [
+                "VMware ESXi Hypervisor 6"
+            ],
+            "processor_and_speed": [
+                "IntelXeonE5-2650@2.00G"
+            ],
+            "ram": [
+                "1024"
+            ],
+            "date_of_purchase": "2024-07-24",
+            "maintenance_end": "2030-07-01"
+        },
+        "created": "2024-07-24T07:21:15.542742Z",
+        "last_updated": "2024-07-24T07:21:15.542801Z",
         "console_port_count": 1,
         "console_server_port_count": 0,
         "power_port_count": 2,
