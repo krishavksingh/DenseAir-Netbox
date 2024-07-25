@@ -3,50 +3,46 @@ from netbox import *
 import urllib3
 import sys
 import json
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-
 def resolve_references(obj, headers):
-   
-    if isinstance(obj, dict):
-        for key, value in obj.items():
+    newobj = []
+    for item in obj:  # device items
+        new_item = item.copy()  # Create a copy to modify
+        for key, value in item.items():  # device properties
             if isinstance(value, dict):
-                resolve_references(value, headers)
+                for key1, value1 in value.items():
+                    if key1 == 'url':
+                        url = value1
+                        print(f'Removing reference at {url}.')
+                        new_data = fetch_data(url, headers)
+                        if new_data is not None:
+                            new_item[key] = new_data  # Assign fetched data
+                    elif isinstance(value1, dict):
+                        for key2, value2 in value1.items():
+                            if key2 == 'url':
+                                url = value2
+                                print(f'Removing reference at {url}.')
+                                new_data1 = fetch_data(url, headers)
+                                if new_data1 is not None:
+                                    new_item[key][key1] = new_data1  # Assign fetched data
 
-            elif isinstance(value, list):
-                for i in range(len(value)):
-                    resolve_references(value[i], headers)
-            
-            elif isinstance(value, str) and value.startswith('https://'):
-                print('URL Link detected, fetching')
-                new_data = fetch_data(value, headers)
-                obj = new_data
-            else:
-                resolve_references(value, headers)
-    elif isinstance(obj, list):
-        for i in range(0, len(obj)):
-            resolve_references(obj[i], headers)
-   
+        newobj.append(new_item)  # Add the modified item to the new list
 
+    return newobj
 
 parser = argparse.ArgumentParser(description='Filter Netbox results')
-parser.add_argument('--filter', type=str,
-                    help='Filter the fetched data from the netbox APIs')
-
-parser.add_argument('--token', type=str,
-                    help='Input your API token for the relevant API')
-
-
-parser.add_argument('--api', type=str,
-                    help='Input the api URL that you wish to search from')
+parser.add_argument('--filter', type=str, help='Filter the fetched data from the netbox APIs')
+parser.add_argument('--token', type=str, help='Input your API token for the relevant API')
+parser.add_argument('--api', type=str, help='Input the api URL that you wish to search from')
 
 args = parser.parse_args()
 
 headers = {
     'Content-Type': 'application/json',
     'Authorization': 'Token ' + args.token
-    }
-
+}
 
 url = build_url(args.api, args.filter)
 
@@ -54,26 +50,20 @@ print('Contacting Netbox at', url, file=sys.stdout)
 
 try:
     data = fetch_data(url, headers)
-except Exception:
-    print('Invalid URL', file=sys.stderr)
+except Exception as e:
+    print('Invalid URL or request failed:', e, file=sys.stderr)
     sys.exit(1)
 
-if len(data) == 1:
-    print('Invalid filters', file=sys.stderr)
+if not data:
+    print('No data received', file=sys.stderr)
     sys.exit(1)
 
-#resolve_references(data, headers)
+data = data['results']
+data = resolve_references(data, headers)
 print('Received:', len(data), 'objects', file=sys.stdout)
 
-output = open("results.txt", "w")
-
-response = data['results']
-results = json.dumps(response, indent=4)
-print(results, file=output)
-
-output.close()
+with open("results.txt", "w") as output:
+    results = json.dumps(data, indent=4)
+    output.write(results)
 
 sys.exit(0)
-# search all references to build a huge file, simon requests organising the switches by how many there are
-# kaggle, towardsdatascience.com kdnuggets for data science
-#main.py --api https://demo.netbox.dev/api/dcim/devices --token c98be45069605e1713858a451012c6905c4a13be --filter juniper
