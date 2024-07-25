@@ -2,14 +2,14 @@ import requests
 import sys
 
 
-def build_url(api, filter_string):
+def build_url(api, filter_string): # Generate URL based on applied filter
     '''
     Creates a valid url if api and filter string are both valid
     '''
     return api + '?manufacturer=' + filter_string.lower()
 
 
-def fetch_data(url, headers):
+def fetch_data(url, headers): # send GET to API link
     '''
     Fetches data from netbox apis
     '''
