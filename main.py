@@ -71,6 +71,9 @@ data = resolve_references(data, headers)
 
 print('Received:', len(data), 'objects', file=sys.stdout)
 
+for object in data:
+    print(f'Device ID {object['id']}, Name: {object['name']}, Device type: {object['device_type']['display']}')
+
 with open(OUTPUT_FILE, "w") as output:
     results = json.dumps(data, indent=4)
     output.write(results)
