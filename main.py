@@ -20,7 +20,7 @@ def resolve_references(data, headers):
                 for key1, value1 in value.items(): 
                     if key1 == 'url':
                         url = value1
-                       # print(f'Removing reference at {url}.')
+                        print(f'Removing reference at {url}.')
                         new_data = fetch_data(url, headers)
                         if new_data is not None:
                             new_item[key] = new_data  # Assign fetched data
@@ -29,7 +29,7 @@ def resolve_references(data, headers):
                         for key2, value2 in value1.items():
                             if key2 == 'url':
                                 url = value2
-                        #        print(f'Removing reference at {url}.')
+                                print(f'Removing reference at {url}.')
                                 new_data1 = fetch_data(url, headers)
                                 if new_data1 is not None:
                                     new_item[key][key1] = new_data1  # Assign fetched data

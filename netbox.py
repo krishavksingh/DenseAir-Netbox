@@ -6,7 +6,7 @@ def build_url(api, filter_string):
     '''
     Creates a valid url if api and filter string are both valid
     '''
-    return api + '' + filter_string.lower()
+    return api + '?manufacturer=' + filter_string.lower()
 
 
 def fetch_data(url, headers): 
