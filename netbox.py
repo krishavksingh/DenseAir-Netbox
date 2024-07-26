@@ -2,14 +2,14 @@ import requests
 import sys
 
 
-def build_url(api, filter_string):
+def build_url(api, filter_string): 
     '''
     Creates a valid url if api and filter string are both valid
     '''
     return api + '?manufacturer=' + filter_string.lower()
 
 
-def fetch_data(url, headers):
+def fetch_data(url, headers): 
     '''
     Fetches data from netbox apis
     '''
@@ -26,5 +26,3 @@ def fetch_data(url, headers):
 
     return response.json()
 
-
-# add different manufacturers

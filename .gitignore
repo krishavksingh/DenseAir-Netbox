@@ -1,2 +1,4 @@
-__pycache__/
-py3.12dev/
+__pycache__
+output.json
+.vscode
+exampleData
